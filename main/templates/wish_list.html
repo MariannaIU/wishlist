@@ -14,7 +14,12 @@
                         <p>
                           <div class="placeholder">
                             {% if is_owner_list %}
-                                <input type="text" placeholder="Добавить желание">
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <button type="submit">ADD</button>
+                                </form>
+
                             {% endif %}
                           </div>
                         </p>
