@@ -18,10 +18,10 @@ from django.urls import path
 from django.urls import include
 
 
-from main.views import index
+#from main.views import index, about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('main/', include('main.urls')),
-    path('', index, name='index_page'),
+    #path('about/', about, name='about_page' ),
 ]
