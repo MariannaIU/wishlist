@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+        <h3>Список желаний</h3>
+        {% for wishlist in wishlist.all %}
+            <a href="{% url 'wish_list_page' pk=wishlist.pk %}">{{ wishlist.title }}</a><br>
+        {% endfor %}
+{% endblock %}
+

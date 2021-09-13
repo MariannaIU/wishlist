@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from datetime import datetime
 
-from .models import WishList
+from .models import WishList, Product
 from .forms import ProductForm
 
 
@@ -34,3 +34,16 @@ def list_page(request, pk):
         }
     )
 
+def all_wish_list(request):
+    """All the wishlists view page"""
+    wishlist = WishList.objects.all()
+    #pk = WishList.get(pk=pk)
+    return render(request, "all_wishlists.html", {'wishlist':wishlist,}
+)
+
+def product(request, product_id):
+    name= Product.objects.filter(id=product_id)
+    product_name = Product.objects.all()
+    current_product = Product.objects.get(pk = product_id)
+    context  = {'name': name, 'product_id': product_id, 'current_product': current_product}
+    return render(request, 'index.html', context)

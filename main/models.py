@@ -12,9 +12,9 @@ class Product(models.Model):
     Цена товара
     Дата и время создания записи
     """
-    title = models.CharField(max_length=120)
-    link = models.URLField()
-    price = models.IntegerField()
+    title = models.CharField(max_length=120, verbose_name='Название')
+    link = models.URLField(verbose_name='Ссылка')
+    price = models.IntegerField(verbose_name='Цена')
     create_at  = models.DateTimeField(auto_now_add=True, auto_created=True)
 
     def __str__(self):
